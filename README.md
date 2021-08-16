@@ -7,7 +7,7 @@ Generate a print based on your favourite track in three easy steps:
 2. Select the desired track
 3. Download the print (or try another track to see different results)
 
-**Video demo coming soon**
+**Video demo: [https://youtu.be/Wr9-3G5f9mQ](https://youtu.be/Wr9-3G5f9mQ)**
 
 #### Project Status: _Active_
 
@@ -30,7 +30,7 @@ used to create the art prints (not all of them are displayed on the browser curr
 
 
 ### Design choices
-* Amongst the different JavaScript libraries (paper.js, processing.js) for generative art, I chose p5.js because it had 
+* Amongst the different JavaScript libraries (paper.js, processing.js, p5.js) for generative art, I chose p5.js because it had 
 a large amount of online resources that allowed me to quickly learn how to generate art with code.
 * Flask was used for the back-end because it provided a minimal framework which I could easily start my web app from.
 * I debated between generating the art print on the client or server side as I had concerns about whether it would 
