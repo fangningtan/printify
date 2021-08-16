@@ -30,7 +30,7 @@ used to create the art prints (not all of them are displayed on the browser curr
 
 
 ### Design choices
-* Amongst the different JavaScript libraries (paper.js, porcessing.js) for generative art, I chose p5.js because it had 
+* Amongst the different JavaScript libraries (paper.js, processing.js) for generative art, I chose p5.js because it had 
 a large amount of online resources that allowed me to quickly learn how to generate art with code.
 * Flask was used for the back-end because it provided a minimal framework which I could easily start my web app from.
 * I debated between generating the art print on the client or server side as I had concerns about whether it would 
