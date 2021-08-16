@@ -1,5 +1,4 @@
 """
-ABONDAONING THIS BECAUSE THE ROUTES WERE MESSED UP
 Prerequisites
     pip3 install spotipy Flask Flask-Session
     // from your [app settings](https://developer.spotify.com/dashboard/applications)
@@ -88,7 +87,7 @@ def login():
     cache_handler = spotipy.cache_handler.CacheFileHandler(cache_path=session_cache_path())
     # note the SpotifyOAuth gets the client_id, client_secret, redirect_uri from the environment
     # TODO edit spotify scope
-    auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-currently-playing playlist-modify-private',
+    auth_manager = spotipy.oauth2.SpotifyOAuth(scope='user-read-recently-played user-top-read',
                                                cache_handler=cache_handler,
                                                show_dialog=True)
     if request.args.get("code"):
