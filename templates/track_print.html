@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Printed
+{% endblock %}
+
+<!--How to include JS script in Jinja2 https://stackoverflow.com/questions/3412275/loading-external-script-with-jinja2-template-directive -->
+{% block javascript %}
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+{% endblock %}
+
+{% block main %}
+<div class="container pt-5 text-center col-lg-10 mx-auto">
+    <h1 class="header-track">{{ artist_name }} - {{ track_name }}</h1>
+    <div class="mx-auto" id="sketch-holder"><!--The sketch canvas goes here--></div>
+    <div class="mx-auto pb-5">
+        <button onclick="saveImage()" class="btn btn-light" id="buttonDownload">Download print in high-res</button>
+        <!--TODO add styling for buttonDownload-->
+        <p>Or <a href="/search">try another song</a></p>
+    </div>
+</div>
+{% endblock %}
+
+<!--Script that draws canvas needs to come after canvas is loaded -->
+<!--This works because JS scripts are executed in the order they appear on the HTML
+var levels_m = {{ loudness_m | tojson }};
+var levels_s = {{ loudness_s | tojson }};
+-->
+<!--How to JS files properly in a Flask project https://stackoverflow.com/questions/41250560/flask-where-to-put-static-javascript-files-in-templates -->
+{% block canvasscript %}
+<script>
+var pitch_segments = {{ pitch_segments | tojson }};
+var durations = {{ durations | tojson }};
+var track_duration = {{ track_duration | tojson }};
+</script>
+<script src="{{ url_for('static',filename='js/pitches-stacked.js') }}"></script>
+{% endblock %}
+

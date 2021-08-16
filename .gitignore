@@ -1,0 +1,8 @@
+__pycache__/
+.idea/
+.cache
+.flask_session/
+.spotify_caches/
+unit-tests/
+cred.py
+config.py

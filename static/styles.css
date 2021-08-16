@@ -1,0 +1,55 @@
+/* Add padding so that the navbar does not overlap the container */
+/* see second response https://stackoverflow.com/questions/10336194/top-nav-bar-blocking-top-content-of-the-page */
+body {
+  padding-top: 60px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.container {
+    margin: auto;
+}
+
+.input-group {
+    min-width: 375px;
+}
+
+
+
+/* headers */
+.header-top {
+    font-family:'Press Start 2P', cursive;
+    font-size: 2rem;
+    /*font-weight: 900;*/
+    text-align: center;
+}
+
+.header-track {
+    font-family:'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#header-title {
+    font-family:'Press Start 2P', cursive;
+    font-size: 3.3rem;
+}
+
+p {
+    /*define font size?*/
+}
+
+/*define different link colors*/
+.search-results {
+}
+
+/* customise spotify button */
+.btn-success {
+    background-color: #1DB954;
+    border-color: #1DB954;
+}
+.btn-success:hover {
+  background-color: #1ED760 ;
+  border-color: #1ED760 ;
+}
+

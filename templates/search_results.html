@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search results
+{% endblock %}
+
+{% block main %}
+<div class="container pt-5 text-center col-lg-10 mx-auto">
+    <h1 class="header-top">Results</h1>
+    <div class="mx-auto">
+
+        <!--code source from: https://pythonrepo.com/repo/plamere-spotipy-python-third-party-apis-wrappers -->
+        <!--TODO some songs have more than one artist (think about how best to display)-->
+        {% for track in results['tracks']['items'] %}
+       <p><a href="/track/{{ track['id'] }}" class="search-results">{{ track['artists'][0]['name']}} - {{ track['name'] }}</a></p>
+        {% endfor %}
+
+    </div>
+    <div class="mx-auto">
+        <!--TODO add link to search page so that user can restart search if needed-->
+        <p>Don't see the song you want? <a href="/search">Try again</a> with more specific search terms.</p>
+    </div>
+
+</div>
+{% endblock %}

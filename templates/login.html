@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Your favourite tracks printed
+{% endblock %}
+
+{% block main %}
+<div class="container pt-5 text-center col-lg-10 mx-auto">
+    <h1 id="header-title">Printify</h1>
+    <div class="mx-auto">
+        <p>Get your favourite tracks printed</p>
+    </div>
+
+    <!-- Need to make a button for spotify ; format it better -->
+    <div class="py-3 my-3 mx-auto">
+        <p><a href={{ auth_url }} class="btn btn-success">
+        <img class="img-responsive center-block" src="static/Spotify_Icon_RGB_White.png" alt="Spotify Icon" width="21px"
+             height="21px"> Log in with Spotify
+    </a></p>
+    </div>
+
+</div>
+{% endblock %}

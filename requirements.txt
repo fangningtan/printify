@@ -1,0 +1,6 @@
+# web app libraries
+flask
+flask-session
+spotipy
+uuid
+datetime

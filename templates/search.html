@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search
+{% endblock %}
+
+{% block main %}
+<div class="container pt-5 text-center col-lg-10 mx-auto">
+    <h1 class="header-top">Search for a track</h1>
+    <!--Maybe put this in a container to make it smaller?-->
+    <div class="d-flex justify-content-center align-items-center container">
+        <form action="/search" method="post">
+            <!--Code from https://codepen.io/gungorbudak/pen/ooKNpz -->
+            <div class="input-group">
+                <input type="text" autocomplete="off" autofocus class="form-control w-75" name="search_str"
+                       placeholder="Track name">
+                <div class="input-group-append">
+                    <!--Button type has to be submit so that data gets sent to the server-->
+                    <button class="btn btn-secondary" type="submit">
+                        <!--This is the search icon -->
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+    </form>
+    </div>
+
+</div>
+{% endblock %}
