@@ -46,12 +46,13 @@ function pitchRect(pitchVolsList, width, rowHeight, x, y) {
 
 }
 
-function addText(x,y){
+function addText(x,y, xmax){
         // add text
     output.textSize(60);
     output.textFont(font);
     output.fill(50);
-    output.text(trackTitle.toUpperCase(),x, y);
+    textWrap(WORD); // so that longer song names will not exceed the width of the printed area
+    output.text(trackTitle.toUpperCase(),x, y, xmax);
 }
 
 
@@ -95,9 +96,11 @@ function draw() {
 
     // Add song name at the bottom
     // Note: distance of text from end of print currently differs slightly for shorter (< 3min) vs longer songs
-    // but this is still acceptable aesthetically
-    const textYPos = rowHeight*nRows + paddingTop + 0.35*rowHeight;
-    addText(0.1*cWidth, textYPos);
+    // but this is still acceptable aesthetically (for now)
+    // TODO figure out how best to position the track title relative to the print, accounting for different songs
+    const textYPos = rowHeight*nRows + paddingTop + 0.5*rowHeight;
+    const textXMax = cWidth - 2*paddingSide;
+    addText(0.1*cWidth, textYPos, textXMax);
 
     // Draw rectangles
     for (let i=0; i < pitch_segments.length; i++) {
