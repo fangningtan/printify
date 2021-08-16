@@ -29,6 +29,8 @@ var levels_s = {{ loudness_s | tojson }};
 <!--How to JS files properly in a Flask project https://stackoverflow.com/questions/41250560/flask-where-to-put-static-javascript-files-in-templates -->
 {% block canvasscript %}
 <script>
+var trackName = {{track_name | tojson }};
+var artistName = {{artist_name | tojson }};
 var pitch_segments = {{ pitch_segments | tojson }};
 var durations = {{ durations | tojson }};
 var track_duration = {{ track_duration | tojson }};

@@ -2,24 +2,24 @@ let scaleOutput = 1;
 let output;
 let canvas;
 let buttonDownload;
-let font;
+var font;
+console.log(artistName);
+console.log(trackName);
+var trackTitle = artistName + ' - ' + trackName
 
 function preload() {
     // TODO check whether this path can be made relative?
-    font=loadFont("http://127.0.0.1:8080/static/Inconsolata-VariableFont_wdth,wght.ttf")
+    font = loadFont("http://127.0.0.1:8080/static/Inconsolata_ExtraCondensed-Light.ttf")
 }
 
 function setup() {
-    canvas = createCanvas(600,600);
+    canvas = createCanvas(650,650);
     // Specify where the sketch will be held https://github.com/processing/p5.js/wiki/Positioning-your-canvas
     canvas.parent('sketch-holder');
 
     // this is the actual dimension of the image
     // how to scale p5js images https://stackoverflow.com/questions/55211647/how-do-i-save-a-p5-js-canvas-as-a-very-large-png
-    output = createGraphics(4000,4000);
-
-    // text
-    textFont(font);
+    output = createGraphics(3000,3000);
 
     // no animation
     noLoop();
@@ -47,10 +47,11 @@ function pitchRect(pitchVolsList, width, rowHeight, x, y) {
 }
 
 function addText(x,y){
-    textSize(1000);
-    textFont(font);
-    fill(50);
-    output.text("why can't i see this.",x, y);
+        // add text
+    output.textSize(60);
+    output.textFont(font);
+    output.fill(50);
+    output.text(trackTitle.toUpperCase(),x, y);
 }
 
 
@@ -60,11 +61,11 @@ function draw() {
     output.push();
 
     // test cwidth meaning the real-life export size
-    let cWidth = 4000;
-    let cHeight = 4000;
+    let cWidth = 3000;
+    let cHeight = 3000;
 
-    let iWidth = 600;
-    let iHeight = 600;
+    let iWidth = 650;
+    let iHeight = 650;
 
     // check whether the print is centered
 //    strokeWeight(3); // Make the points 10 pixels in size
@@ -83,8 +84,8 @@ function draw() {
     const nRows = Math.ceil(songDuration/secondsPerRow);
 
     // adjust start y coord based on songDuration
-    let paddingSide = 0.05*cWidth;
-    let paddingTop = 0.05*cHeight;
+    let paddingSide = 0.1*cWidth;
+    let paddingTop = 0.1*cHeight;
     let x = paddingSide;
     let y = paddingTop;
 
@@ -92,7 +93,13 @@ function draw() {
     const pixelsPerSecond = (cWidth - 2*paddingSide )/secondsPerRow;
     const rowHeight = (cHeight - 2*paddingSide)/ nRows;
 
-    //console.log(pitch_segments.length);
+    // Add song name at the bottom
+    // Note: distance of text from end of print currently differs slightly for shorter (< 3min) vs longer songs
+    // but this is still acceptable aesthetically
+    const textYPos = rowHeight*nRows + paddingTop + 0.35*rowHeight;
+    addText(0.1*cWidth, textYPos);
+
+    // Draw rectangles
     for (let i=0; i < pitch_segments.length; i++) {
         // segment width is proportional to duration
         segmentWidth = durations[i]*pixelsPerSecond;
@@ -110,13 +117,7 @@ function draw() {
            x = paddingSide;
            y += rowHeight;
         }
-        //timeInRow += durations[i];
-
-        //y += segmentWidth;
     }
-
-    // Add song name at the bottom
-    addText(0, 0);
 
     output.pop();
 
