@@ -9,11 +9,12 @@ var trackTitle = artistName + ' - ' + trackName
 
 function preload() {
     // TODO check whether this path can be made relative?
+    // TODO replace font with one that supports non-Roman scripts
     font = loadFont("http://127.0.0.1:8080/static/Inconsolata_ExtraCondensed-Light.ttf")
 }
 
 function setup() {
-    canvas = createCanvas(650,650);
+    canvas = createCanvas(600,600);
     // Specify where the sketch will be held https://github.com/processing/p5.js/wiki/Positioning-your-canvas
     canvas.parent('sketch-holder');
 
@@ -65,8 +66,8 @@ function draw() {
     let cWidth = 3000;
     let cHeight = 3000;
 
-    let iWidth = 650;
-    let iHeight = 650;
+    let iWidth = 600;
+    let iHeight = 600;
 
     // check whether the print is centered
 //    strokeWeight(3); // Make the points 10 pixels in size
@@ -131,7 +132,8 @@ function draw() {
 
 // Export when key is pressed
 function saveImage() {
-        output.save("print.png");
+    filename = "print_" + artistName + trackName + ".png";
+    output.save(filename.replace(/\s+/g, ''));
 }
 
 
